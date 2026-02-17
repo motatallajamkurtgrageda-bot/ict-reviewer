@@ -1,0 +1,865 @@
+const questions = [
+  {
+    question: "1. Which component is primarily responsible for executing program instructions?",
+    options: ["A. RAM", "B. Hard Drive", "C. CPU", "D. Motherboard"],
+    answer: 2,
+    explanation: "The CPU (Central Processing Unit) executes program instructions through its control unit and arithmetic logic unit. RAM stores data temporarily, while storage devices keep data permanently."
+  },
+  {
+    question: "2. Which of the following is a volatile memory?",
+    options: ["A. SSD", "B. ROM", "C. RAM", "D. Flash Drive"],
+    answer: 2,
+    explanation: "RAM is volatile memory because it loses its contents when power is turned off. ROM and storage devices retain data even without power."
+  },
+  {
+    question: "3. The primary function of the operating system is to:",
+    options: ["A. Design applications", "B. Manage hardware and software resources", "C. Replace antivirus software", "D. Increase internet speed"],
+    answer: 1,
+    explanation: "The operating system manages hardware resources, processes, memory, and user interfaces. It acts as an intermediary between hardware and application software."
+  },
+  {
+    question: "4. Which of the following is an example of system software?",
+    options: ["A. Microsoft Word", "B. Google Chrome", "C. Linux", "D. Adobe Photoshop"],
+    answer: 2,
+    explanation: "Linux is an operating system, which is classified as system software. The others are application software."
+  },
+  {
+    question: "5. Which device converts digital signals to analog signals for transmission over telephone lines?",
+    options: ["A. Router", "B. Switch", "C. Modem", "D. Repeater"],
+    answer: 2,
+    explanation: "A modem (modulator-demodulator) converts digital signals into analog signals and vice versa for communication over traditional telephone lines."
+  },
+  {
+    question: "6. The binary number system uses which base?",
+    options: ["A. 2", "B. 8", "C. 10", "D. 16"],
+    answer: 0,
+    explanation: "Binary is a base-2 number system that uses only two digits: 0 and 1. Computers operate internally using binary."
+  },
+  {
+    question: "7. Which storage device has no moving mechanical parts?",
+    options: ["A. HDD", "B. SSD", "C. CD-ROM", "D. DVD"],
+    answer: 1,
+    explanation: "Solid State Drives (SSD) use flash memory and contain no moving parts, making them faster and more durable than HDDs."
+  },
+  {
+    question: "8. The ALU is responsible for:",
+    options: ["A. Storing files", "B. Performing arithmetic and logic operations", "C. Connecting peripherals", "D. Booting the system"],
+    answer: 1,
+    explanation: "The Arithmetic Logic Unit performs mathematical calculations and logical comparisons within the CPU."
+  },
+  {
+    question: "9. Which of the following is an input device?",
+    options: ["A. Printer", "B. Monitor", "C. Scanner", "D. Speaker"],
+    answer: 2,
+    explanation: "A scanner captures physical documents and converts them into digital form, making it an input device."
+  },
+  {
+    question: "10. A terabyte is equal to approximately:",
+    options: ["A. 1,000 bytes", "B. 1 million bytes", "C. 1 billion bytes", "D. 1 trillion bytes"],
+    answer: 3,
+    explanation: "A terabyte is approximately one trillion bytes (1,000 gigabytes in decimal measurement)."
+  },
+  {
+    question: "11. Which of the following BEST describes firmware?",
+    options: ["A. Temporary files", "B. Software embedded in hardware", "C. Web applications", "D. Spreadsheet programs"],
+    answer: 1,
+    explanation: "Firmware is software programmed into hardware devices, such as BIOS or embedded systems."
+  },
+  {
+    question: "12. The BIOS is stored in:",
+    options: ["A. RAM", "B. ROM", "C. SSD", "D. Cache"],
+    answer: 1,
+    explanation: "BIOS is stored in ROM because it must remain available even when the system is powered off."
+  },
+  {
+    question: "13. Which component connects all hardware parts of a computer?",
+    options: ["A. CPU", "B. Motherboard", "C. GPU", "D. Power supply"],
+    answer: 1,
+    explanation: "The motherboard is the main circuit board that connects and allows communication among all components."
+  },
+  {
+    question: "14. Cache memory is used to:",
+    options: ["A. Store permanent files", "B. Speed up data access", "C. Replace RAM", "D. Install applications"],
+    answer: 1,
+    explanation: "Cache memory stores frequently accessed data to speed up processing by reducing access time."
+  },
+  {
+    question: "15. Which of the following is NOT an example of output device?",
+    options: ["A. Plotter", "B. Headphones", "C. Projector", "D. Keyboard"],
+    answer: 3,
+    explanation: "A keyboard is an input device used to enter data into a computer."
+  },
+  {
+    question: "16. A bit represents:",
+    options: ["A. Eight binary digits", "B. A single binary digit", "C. A group of bytes", "D. A decimal value"],
+    answer: 1,
+    explanation: "A bit is the smallest unit of data and represents either 0 or 1."
+  },
+  {
+    question: "17. Which memory is closest to the CPU?",
+    options: ["A. RAM", "B. SSD", "C. Cache", "D. HDD"],
+    answer: 2,
+    explanation: "Cache memory is located inside or very close to the CPU, allowing faster data access."
+  },
+  {
+    question: "18. Which of the following is an example of open-source software?",
+    options: ["A. Windows", "B. macOS", "C. Linux", "D. MS Excel"],
+    answer: 2,
+    explanation: "Linux is open-source, meaning its source code is publicly accessible and modifiable."
+  },
+  {
+    question: "19. The booting process refers to:",
+    options: ["A. Installing software", "B. Starting up the computer", "C. Formatting the disk", "D. Deleting viruses"],
+    answer: 1,
+    explanation: "Booting is the process of starting a computer and loading the operating system into memory."
+  },
+  {
+    question: "20. A peripheral device is:",
+    options: ["A. Part of the CPU", "B. External device connected to a computer", "C. Type of RAM", "D. Storage partition"],
+    answer: 1,
+    explanation: "Peripheral devices are external hardware components such as printers, keyboards, and external drives."
+  },
+  {
+    question: "22. Which of the following is classified as secondary storage?",
+    options: ["A. Cache memory", "B. RAM", "C. CPU register", "D. Hard Disk Drive"],
+    answer: 3,
+    explanation: "Secondary storage refers to non-volatile storage that retains data permanently, such as HDDs and SSDs. RAM and cache are volatile memory types."
+  },
+  {
+    question: "23. ASCII is primarily used for:",
+    options: ["A. Encrypting files", "B. Character encoding", "C. Compressing images", "D. Network routing"],
+    answer: 1,
+    explanation: "ASCII (American Standard Code for Information Interchange) assigns numeric values to letters, numbers, and symbols to represent text in computers."
+  },
+  {
+    question: "24. Which of the following is NOT a function of an operating system?",
+    options: ["A. Managing processes", "B. Controlling memory allocation", "C. Providing user interface", "D. Manufacturing hardware components"],
+    answer: 3,
+    explanation: "An operating system manages hardware and software resources but does not physically manufacture hardware components."
+  },
+  {
+    question: "25. USB stands for:",
+    options: ["A. Universal Serial Bus", "B. Unified System Board", "C. User Service Backup", "D. Universal Storage Block"],
+    answer: 0,
+    explanation: "USB (Universal Serial Bus) is a standard interface used to connect peripheral devices to computers."
+  },
+  {
+    question: "26. Cloud storage is BEST described as:",
+    options: ["A. External hard drive storage", "B. Physical server room storage", "C. Online storage accessible via the internet", "D. Temporary cache storage"],
+    answer: 2,
+    explanation: "Cloud storage allows users to store and access data remotely over the internet instead of using local physical storage devices."
+  },
+  {
+    question: "27. A computer virus is:",
+    options: ["A. A hardware malfunction", "B. A malicious software program", "C. A type of antivirus tool", "D. A network protocol"],
+    answer: 1,
+    explanation: "A virus is a form of malware that replicates itself and spreads to other systems, often causing damage or data corruption."
+  },
+  {
+    question: "28. CPU speed is measured in:",
+    options: ["A. Hertz", "B. Bytes", "C. Pixels", "D. Watts"],
+    answer: 0,
+    explanation: "CPU speed is measured in Hertz (Hz), which represents cycles per second. Modern CPUs operate in gigahertz (GHz)."
+  },
+  {
+    question: "29. Which device is responsible for routing data between different networks?",
+    options: ["A. Switch", "B. Hub", "C. Router", "D. Repeater"],
+    answer: 2,
+    explanation: "A router directs data packets between different networks, such as between a local network and the internet."
+  },
+  {
+    question: "30. Which of the following is an example of utility software?",
+    options: ["A. Microsoft Excel", "B. Google Docs", "C. PowerPoint", "D. Antivirus software"],
+    answer: 3,
+    explanation: "Utility software helps maintain, analyze, and optimize computer performance. Antivirus programs are designed to detect and remove malware."
+  },
+  {
+    question: "31. The hexadecimal number system uses:",
+    options: ["A. Base 2", "B. Base 8", "C. Base 10", "D. Base 16"],
+    answer: 3,
+    explanation: "The hexadecimal system uses 16 symbols (0–9 and A–F) and is commonly used in computing for memory addressing and color codes."
+  },
+  {
+    question: "32. Which of the following is NOT a storage device?",
+    options: ["A. SSD", "B. ALU", "C. Flash Drive", "D. HDD"],
+    answer: 1,
+    explanation: "The ALU (Arithmetic Logic Unit) performs calculations inside the CPU and is not a storage device."
+  },
+  {
+    question: "33. GUI stands for:",
+    options: ["A. General Utility Interface", "B. Global User Internet", "C. Graphical User Interface", "D. Guided User Interaction"],
+    answer: 2,
+    explanation: "A GUI allows users to interact with a computer using visual elements such as icons, windows, and menus."
+  },
+  {
+    question: "34. Which of the following memory types is non-volatile?",
+    options: ["A. ROM", "B. RAM", "C. Cache", "D. Register"],
+    answer: 0,
+    explanation: "ROM (Read-Only Memory) retains its data even when the power is turned off."
+  },
+  {
+    question: "35. Which file extension indicates an executable file in Windows?",
+    options: ["A. .docx", "B. .exe", "C. .jpg", "D. .mp3"],
+    answer: 1,
+    explanation: "The .exe extension identifies executable programs that can be run in the Windows operating system."
+  },
+  {
+    question: "36. Which of the following is both an input and output device?",
+    options: ["A. Printer", "B. Scanner", "C. Touchscreen", "D. Speaker"],
+    answer: 2,
+    explanation: "A touchscreen displays output while also accepting touch input from users."
+  },
+  {
+    question: "37. Formatting a disk will:",
+    options: ["A. Erase all stored data", "B. Increase RAM capacity", "C. Install the operating system automatically", "D. Repair hardware damage"],
+    answer: 0,
+    explanation: "Formatting prepares a storage device for use by erasing all existing data and setting up a file system."
+  },
+  {
+    question: "38. All of the following are examples of malware EXCEPT:",
+    options: ["A. Trojan", "B. Worm", "C. Spyware", "D. Firewall"],
+    answer: 3,
+    explanation: "A firewall is a security tool that protects systems from unauthorized access, while the others are types of malicious software."
+  },
+  {
+    question: "39. Bit rate directly affects:",
+    options: ["A. Monitor resolution", "B. Storage capacity", "C. Data transmission speed", "D. CPU temperature"],
+    answer: 2,
+    explanation: "Bit rate refers to the number of bits transmitted per second and determines data transfer speed in networks."
+  },
+  {
+    question: "40. Which practice BEST protects data from permanent loss?",
+    options: ["A. Defragmentation", "B. Regular data backup", "C. Disk formatting", "D. Installing more RAM"],
+    answer: 1,
+    explanation: "Regular backups ensure that data can be restored in case of hardware failure, accidental deletion, or cyberattacks."
+  },
+  {
+    question: "41. Which component supplies electrical power to the computer?",
+    options: ["A. Motherboard", "B. CPU", "C. GPU", "D. Power Supply Unit"],
+    answer: 3,
+    explanation: "The PSU converts electrical power from an outlet into usable power for computer components."
+  },
+  {
+    question: "42. Which of the following is an example of optical storage?",
+    options: ["A. SSD", "B. DVD", "C. RAM", "D. Cache"],
+    answer: 1,
+    explanation: "DVDs store data using laser technology, making them optical storage devices."
+  },
+  {
+    question: "43. Increasing RAM capacity primarily improves:",
+    options: ["A. Multitasking performance", "B. Screen brightness", "C. Internet subscription speed", "D. Printer quality"],
+    answer: 0,
+    explanation: "More RAM allows the system to handle multiple applications simultaneously without slowing down."
+  },
+  {
+    question: "44. Overclocking a CPU increases its:",
+    options: ["A. Storage space", "B. Power supply", "C. Operating speed", "D. Physical size"],
+    answer: 2,
+    explanation: "Overclocking increases the CPU’s clock rate beyond manufacturer specifications to enhance performance."
+  },
+  {
+    question: "45. Which operating system is proprietary?",
+    options: ["A. Linux", "B. Windows", "C. Ubuntu", "D. Fedora"],
+    answer: 1,
+    explanation: "Windows is proprietary software owned and controlled by Microsoft, unlike open-source systems like Linux and Ubuntu."
+  },
+  {
+    question: "46. During startup, BIOS primarily loads:",
+    options: ["A. Application software", "B. Antivirus program", "C. Printer driver", "D. Operating system"],
+    answer: 3,
+    explanation: "BIOS initializes hardware and loads the operating system into memory during booting."
+  },
+  {
+    question: "47. Cache memory is designed to:",
+    options: ["A. Temporarily store frequently accessed data", "B. Permanently archive files", "C. Replace secondary storage", "D. Increase monitor resolution"],
+    answer: 0,
+    explanation: "Cache stores frequently used instructions and data to reduce access time and improve CPU efficiency."
+  },
+  {
+    question: "48. LAN stands for:",
+    options: ["A. Large Access Network", "B. Long Area Node", "C. Local Area Network", "D. Logical Application Network"],
+    answer: 2,
+    explanation: "A Local Area Network connects computers within a limited geographic area such as a classroom or office."
+  },
+  {
+    question: "49. Which device helps prevent CPU overheating?",
+    options: ["A. Router", "B. Heat sink", "C. Modem", "D. Keyboard"],
+    answer: 1,
+    explanation: "A heat sink dissipates heat generated by the CPU to prevent overheating and maintain stable performance."
+  },
+  {
+    question: "50. The MOST appropriate reason for upgrading from HDD to SSD is:",
+    options: ["A. Increased monitor resolution", "B. Larger keyboard size", "C. Faster data access and boot time", "D. Improved speaker quality"],
+    answer: 2,
+    explanation: "SSDs provide significantly faster read/write speeds compared to HDDs, improving system boot time and application performance."
+  },
+  {
+    question: "1. ICT integration in education is BEST defined as:",
+    options: ["A. Using computers during class breaks", "B. Replacing teachers with technology", "C. Meaningful use of technology to enhance learning outcomes", "D. Allowing students to browse freely online"],
+    answer: 2,
+    explanation: "ICT integration involves purposeful and strategic use of technology to improve instruction, engagement, and learning outcomes—not merely using devices for convenience."
+  },
+  {
+    question: "2. A teacher uses PowerPoint only to display lecture notes word-for-word. This reflects:",
+    options: ["A. Transformative integration", "B. Substitution level of integration", "C. Redefinition level", "D. Collaborative learning"],
+    answer: 1,
+    explanation: "In the SAMR model, substitution occurs when technology replaces traditional tools without functional improvement, such as replacing a chalkboard with slides."
+  },
+  {
+    question: "3. Which model describes levels of technology integration: Substitution, Augmentation, Modification, Redefinition?",
+    options: ["A. TPACK", "B. Bloom’s Taxonomy", "C. SAMR", "D. ADDIE"],
+    answer: 2,
+    explanation: "The SAMR model classifies technology integration into four levels, from simple substitution to transformative redefinition."
+  },
+  {
+    question: "4. TPACK emphasizes the integration of:",
+    options: ["A. Technology only", "B. Pedagogy only", "C. Content knowledge only", "D. Technology, pedagogy, and content knowledge"],
+    answer: 3,
+    explanation: "TPACK highlights the intersection of technological knowledge, pedagogical knowledge, and content knowledge for effective teaching."
+  },
+  {
+    question: "5. Which is the MOST appropriate use of ICT for formative assessment?",
+    options: ["A. Posting grades online only", "B. Using online quizzes with instant feedback", "C. Printing test papers", "D. Displaying scores at the end of the semester"],
+    answer: 1,
+    explanation: "Formative assessment focuses on monitoring learning progress. Online quizzes with instant feedback help students identify gaps immediately."
+  },
+  {
+    question: "6. A teacher allows students to create digital storytelling projects instead of written essays. This demonstrates:",
+    options: ["A. Passive learning", "B. Teacher-centered instruction", "C. Creative and multimodal learning", "D. Elimination of assessment"],
+    answer: 2,
+    explanation: "Digital storytelling integrates multimedia elements and promotes creativity, communication, and higher-order thinking."
+  },
+  {
+    question: "7. Which is an example of synchronous online learning?",
+    options: ["A. Pre-recorded lecture video", "B. Discussion forum post", "C. Live Zoom class", "D. Email assignment submission"],
+    answer: 2,
+    explanation: "Synchronous learning occurs in real time, such as live virtual classes or webinars."
+  },
+  {
+    question: "8. Which of the following is asynchronous learning?",
+    options: ["A. Live webinar", "B. Recorded video lecture", "C. Video conference", "D. Real-time chat discussion"],
+    answer: 1,
+    explanation: "Asynchronous learning does not require real-time interaction, allowing students to access materials at their convenience."
+  },
+  {
+    question: "9. In ICT-based instruction, digital divide refers to:",
+    options: ["A. Internet speed differences only", "B. Students preferring gadgets", "C. Gap in access to technology resources", "D. Difference between teachers and students"],
+    answer: 2,
+    explanation: "The digital divide refers to unequal access to digital tools, internet connectivity, and technological literacy."
+  },
+  {
+    question: "10. Which practice BEST promotes digital collaboration?",
+    options: ["A. Individual online worksheets", "B. Shared Google Docs editing", "C. Printed group report", "D. Teacher-only presentations"],
+    answer: 1,
+    explanation: "Shared digital platforms enable real-time collaboration, communication, and teamwork."
+  },
+  {
+    question: "11. An LMS is primarily used to:",
+    options: ["A. Replace textbooks permanently", "B. Manage, deliver, and track learning activities", "C. Eliminate face-to-face teaching", "D. Prevent plagiarism only"],
+    answer: 1,
+    explanation: "A Learning Management System organizes course materials, assessments, tracking, and communication."
+  },
+  {
+    question: "12. Which is NOT a benefit of ICT in education?",
+    options: ["A. Increased learner engagement", "B. Flexible access to materials", "C. Guaranteed academic honesty", "D. Access to global resources"],
+    answer: 2,
+    explanation: "ICT cannot guarantee academic honesty; in fact, it may increase opportunities for plagiarism if not managed properly."
+  },
+  {
+    question: "13. Blended learning combines:",
+    options: ["A. Online and face-to-face instruction", "B. Two textbooks", "C. Printed and handwritten notes", "D. Teacher and parent instruction only"],
+    answer: 0,
+    explanation: "Blended learning integrates online digital media with traditional classroom methods."
+  },
+  {
+    question: "14. Which strategy BEST ensures responsible ICT use in class?",
+    options: ["A. Blocking all websites", "B. Ignoring misuse", "C. Teaching digital citizenship", "D. Removing all gadgets"],
+    answer: 2,
+    explanation: "Teaching digital citizenship empowers students to use technology ethically and responsibly."
+  },
+  {
+    question: "15. A teacher designing instruction using ADDIE begins with:",
+    options: ["A. Evaluation", "B. Analysis", "C. Development", "D. Implementation"],
+    answer: 1,
+    explanation: "ADDIE begins with Analysis, where learner needs and instructional goals are identified."
+  },
+  {
+    question: "16. Which ICT tool supports interactive polling in class?",
+    options: ["A. Mentimeter", "B. Paint", "C. Notepad", "D. BIOS"],
+    answer: 0,
+    explanation: "Mentimeter allows real-time polling and student engagement."
+  },
+  {
+    question: "17. Which level of Bloom’s is MOST enhanced by ICT simulations?",
+    options: ["A. Remembering", "B. Understanding", "C. Applying", "D. Creating"],
+    answer: 2,
+    explanation: "Simulations allow learners to apply knowledge in realistic scenarios."
+  },
+  {
+    question: "35. The MOST appropriate response to online hate speech is to:",
+    options: ["A. Report and avoid engaging", "B. Respond aggressively", "C. Share it widely", "D. Ignore all policies"],
+    answer: 0,
+    explanation: "Reporting hate speech helps maintain safe digital spaces and prevents escalation."
+  },
+  {
+    question: "36. Data encryption is used to:",
+    options: ["A. Increase storage space", "B. Speed up downloads", "C. Protect information from unauthorized access", "D. Improve graphics"],
+    answer: 2,
+    explanation: "Encryption converts data into secure code to prevent unauthorized access."
+  },
+  {
+    question: "37. A secure website address typically begins with:",
+    options: ["A. FTP", "B. HTTPS", "C. WWW", "D. HTTP only"],
+    answer: 1,
+    explanation: "HTTPS uses encryption (SSL/TLS) to secure communication between user and website."
+  },
+  {
+    question: "38. An ethical teacher using ICT should:",
+    options: ["A. Share student records publicly", "B. Protect student data confidentiality", "C. Post grades on social media", "D. Use pirated software"],
+    answer: 1,
+    explanation: "Teachers must protect sensitive student information in compliance with privacy laws."
+  },
+  {
+    question: "39. Which practice improves media literacy?",
+    options: ["A. Cross-checking information from multiple credible sources", "B. Trusting viral posts automatically", "C. Sharing without reading", "D. Ignoring publication dates"],
+    answer: 0,
+    explanation: "Verifying information from reliable sources reduces misinformation."
+  },
+  {
+    question: "40. Digital piracy refers to:",
+    options: ["A. Legal downloading", "B. Streaming licensed content", "C. Illegal copying and distribution of digital content", "D. Free public domain sharing"],
+    answer: 2,
+    explanation: "Digital piracy violates intellectual property laws."
+  },
+  {
+    question: "41. Oversharing personal details online may lead to:",
+    options: ["A. Increased privacy", "B. Identity theft and privacy risks", "C. Better security", "D. Faster internet"],
+    answer: 1,
+    explanation: "Public exposure of personal information increases vulnerability to cyber threats."
+  },
+  {
+    question: "42. Password managers are useful because they:",
+    options: ["A. Store passwords securely", "B. Share passwords publicly", "C. Remove encryption", "D. Replace firewalls"],
+    answer: 0,
+    explanation: "Password managers generate and securely store strong passwords."
+  },
+  {
+    question: "43. The MOST responsible action when encountering fake news is to:",
+    options: ["A. Verify facts before sharing", "B. Share immediately", "C. Ignore verification", "D. Delete research sources"],
+    answer: 0,
+    explanation: "Fact-checking prevents the spread of misinformation."
+  },
+  {
+    question: "44. Ethical hacking involves:",
+    options: ["A. Illegal intrusion", "B. Testing security systems with authorization", "C. Stealing data", "D. Disabling firewalls"],
+    answer: 1,
+    explanation: "Ethical hackers identify vulnerabilities legally to improve cybersecurity."
+  },
+  {
+    question: "45. Cyberstalking is defined as:",
+    options: ["A. Online shopping", "B. Gaming", "C. Repeated online harassment or monitoring", "D. Email marketing"],
+    answer: 2,
+    explanation: "Cyberstalking involves persistent digital harassment that threatens privacy and safety."
+  },
+  {
+    question: "46. Fair use allows:",
+    options: ["A. Unlimited copying", "B. Ignoring copyright", "C. Selling pirated materials", "D. Limited use for educational and commentary purposes"],
+    answer: 3,
+    explanation: "Fair use permits limited copyrighted material use for education, research, and commentary."
+  },
+  {
+    question: "47. Spam emails are:",
+    options: ["A. Secure communication", "B. Unsolicited bulk messages", "C. Official government notices", "D. Encrypted files"],
+    answer: 1,
+    explanation: "Spam emails are unsolicited messages often used for advertising or scams."
+  },
+  {
+    question: "48. Strong digital citizenship requires:",
+    options: ["A. Anonymity without accountability", "B. Ignoring online ethics", "C. Accountability, respect, and responsibility", "D. Avoiding technology completely"],
+    answer: 2,
+    explanation: "Responsible digital citizens demonstrate ethical behavior, respect, and accountability online."
+  },
+  {
+    question: "49. The MOST appropriate way to dispose of sensitive digital data is:",
+    options: ["A. Secure deletion or data wiping", "B. Simply deleting files", "C. Sharing publicly", "D. Ignoring backups"],
+    answer: 0,
+    explanation: "Secure deletion ensures data cannot be recovered by unauthorized individuals."
+  },
+  {
+    question: "50. The ultimate goal of digital literacy education is to develop learners who are:",
+    options: ["A. Gadget-dependent", "B. Highly online at all times", "C. Responsible, critical, and ethical digital participants", "D. Focused only on entertainment"],
+    answer: 2,
+    explanation: "Digital literacy education aims to develop critical thinking, ethical participation, and responsible engagement in digital environments."
+  },
+  {
+    question: "1. The ADDIE model begins with:",
+    options: ["A. Development", "B. Analysis", "C."],
+    answer: 2,
+    explanation: ""
+  },
+  {
+    question: "2. The ASSURE model is primarily used to:",
+    options: ["A. Repair hardware", "B. Integrate media and technology into instruction", "C. Replace teachers", "D. Evaluate software licenses"],
+    answer: 1,
+    explanation: "The ASSURE model helps teachers systematically plan and integrate instructional media and technology."
+  },
+  {
+    question: "3. In the SAMR model, Redefinition occurs when:",
+    options: ["A. Technology substitutes a worksheet", "B. Students type notes instead of writing", "C. Technology enables tasks previously inconceivable", "D. Slides replace blackboard"],
+    answer: 2,
+    explanation: "Redefinition transforms learning tasks in ways not possible without technology."
+  },
+  {
+    question: "4. TPACK emphasizes the integration of:",
+    options: ["A. Technology only", "B. Content only", "C. Pedagogy only", "D. Technology, Pedagogy, and Content Knowledge"],
+    answer: 3,
+    explanation: "TPACK highlights the intersection of technological, pedagogical, and content knowledge."
+  },
+  {
+    question: "5. Which evaluation model focuses on Reaction, Learning, Behavior, and Results?",
+    options: ["A. CIPP", "B. Kirkpatrick Model", "C. ADDIE", "D. Bloom’s Taxonomy"],
+    answer: 1,
+    explanation: "The Kirkpatrick Model evaluates training effectiveness across four levels: Reaction, Learning, Behavior, and Results."
+  },
+  {
+    question: "6. The CIPP evaluation model stands for:",
+    options: ["A. Content, Integration, Process, Product", "B. Context, Input, Process, Product", "C. Curriculum, Instruction, Planning, Performance", "D. Control, Implementation, Planning, Product"],
+    answer: 1,
+    explanation: "CIPP evaluates educational programs through Context, Input, Process, and Product."
+  },
+  {
+    question: "7. In instructional design, formative evaluation is conducted:",
+    options: ["A. After course completion only", "B. During the development process", "C. Before analysis", "D. After final grading"],
+    answer: 1,
+    explanation: "Formative evaluation occurs during development to improve instructional materials."
+  },
+  {
+    question: "8. Which learning theory supports simulation-based digital learning?",
+    options: ["A. Behaviorism", "B. Constructivism", "C. Structuralism", "D. Determinism"],
+    answer: 1,
+    explanation: "Constructivism emphasizes active learning and knowledge construction through experience, including simulations."
+  },
+  {
+    question: "9. A teacher redesigns a lesson using collaborative online global projects. This BEST reflects:",
+    options: ["A. Substitution", "B. Augmentation", "C. Redefinition", "D. Traditional instruction"],
+    answer: 2,
+    explanation: "Global collaboration tasks are often impossible without technology, reflecting Redefinition."
+  },
+  {
+    question: "10. Backward design in instructional planning begins with:",
+    options: ["A. Selecting technology", "B. Identifying desired learning outcomes", "C. Designing activities", "D. Preparing assessment tools"],
+    answer: 1,
+    explanation: "Backward design starts with identifying learning goals before planning instruction and assessment."
+  },
+  {
+    question: "11. The primary purpose of instructional alignment is to ensure:",
+    options: ["A. Technology replaces teaching", "B. Objectives, activities, and assessments match", "C. Students use gadgets daily", "D. Lessons are longer"],
+    answer: 1,
+    explanation: "Alignment ensures coherence between goals, instruction, and evaluation."
+  },
+  {
+    question: "12. Which is an example of authentic assessment using technology?",
+    options: ["A. Multiple-choice quiz only", "B. Online timed test", "C. Student-created multimedia project solving real-world problem", "D. Copy-paste assignment"],
+    answer: 2,
+    explanation: "Authentic assessments require real-world application and higher-order skills."
+  },
+  {
+    question: "14. Learning analytics in educational technology is primarily used to:",
+    options: ["A. Replace teacher judgment", "B. Monitor and improve student performance", "C. Increase internet bandwidth", "D. Reduce course content"],
+    answer: 1,
+    explanation: "Learning analytics uses student data to identify patterns, monitor progress, and inform instructional decisions."
+  },
+  {
+    question: "15. The MOST important factor in selecting instructional technology is:",
+    options: ["A. Popularity of the tool", "B. Cost of subscription", "C. Alignment with learning objectives", "D. Device brand"],
+    answer: 2,
+    explanation: "Technology must serve instructional goals. Alignment ensures meaningful integration and effective learning outcomes."
+  },
+  {
+    question: "16. A teacher uses virtual reality simulations to teach medical procedures. This reflects:",
+    options: ["A. Passive learning", "B. Experiential and immersive learning", "C. Minimal integration", "D. Substitution level"],
+    answer: 1,
+    explanation: "VR simulations allow learners to experience realistic scenarios, promoting experiential and applied learning."
+  },
+  {
+    question: "17. The Evaluation phase in the ADDIE model focuses on:",
+    options: ["A. Identifying objectives", "B. Installing devices", "C. Measuring instructional effectiveness", "D. Writing lesson plans"],
+    answer: 2,
+    explanation: "Evaluation determines whether learning objectives were achieved and whether improvements are needed."
+  },
+  {
+    question: "18. In a flipped classroom, in-class activities MOST likely focus on:",
+    options: ["A. Memorization", "B. Passive listening", "C. Application and analysis", "D. Copying notes"],
+    answer: 2,
+    explanation: "Flipped classrooms shift content delivery outside class and use in-class time for higher-order thinking tasks."
+  },
+  {
+    question: "19. Which of the following is NOT a principle of Universal Design for Learning (UDL)?",
+    options: ["A. Multiple means of representation", "B. Multiple means of engagement", "C. Single rigid assessment format", "D. Multiple means of expression"],
+    answer: 2,
+    explanation: "UDL promotes flexibility and accessibility, not rigid single-method assessment."
+  },
+  {
+    question: "20. In the ASSURE model, the letter “A” in the first step stands for:",
+    options: ["A. Analyze learners", "B. Apply assessment", "C. Align objectives", "D. Activate devices"],
+    answer: 0,
+    explanation: "ASSURE begins with analyzing learner characteristics to tailor instruction effectively."
+  },
+  {
+    question: "21. Microlearning is characterized by:",
+    options: ["A. Extended lecture sessions", "B. Short, focused instructional units", "C. No assessment", "D. Unlimited content delivery"],
+    answer: 1,
+    explanation: "Microlearning delivers content in short, targeted segments that enhance retention and flexibility."
+  },
+  {
+    question: "22. The MOST appropriate use of artificial intelligence in education is to:",
+    options: ["A. Replace teachers entirely", "B. Personalize learning pathways", "C. Eliminate assessments", "D. Publicly share student data"],
+    answer: 1,
+    explanation: "AI can adapt content based on learner performance, supporting individualized instruction."
+  },
+  {
+    question: "23. Which design principle ensures accessibility in digital materials?",
+    options: ["A. Complex animations", "B. Captioned videos and alternative text", "C. Very small fonts", "D. Overcrowded slides"],
+    answer: 1,
+    explanation: "Accessibility features like captions and alt text ensure inclusivity for diverse learners."
+  },
+  {
+    question: "24. Summative evaluation is conducted:",
+    options: ["A. Before planning", "B. During development", "C. After implementation", "D. Before analysis"],
+    answer: 2,
+    explanation: "Summative evaluation measures overall effectiveness after the instructional program is completed."
+  },
+  {
+    question: "25. Instructional scaffolding in digital learning refers to:",
+    options: ["A. Removing guidance immediately", "B. Gradually reducing support as competence increases", "C. Avoiding feedback", "D. Eliminating assessment"],
+    answer: 1,
+    explanation: "Scaffolding provides structured support that is gradually withdrawn as learners gain independence."
+  },
+  {
+    question: "26. Gamification primarily increases:",
+    options: ["A. Administrative tasks", "B. Student engagement and motivation", "C. Hardware requirements", "D. Network traffic"],
+    answer: 1,
+    explanation: "Gamification uses game elements to increase participation and intrinsic motivation."
+  },
+  {
+    question: "27. A rubric in digital assessment is used to:",
+    options: ["A. Eliminate grading", "B. Clarify evaluation criteria", "C. Replace objectives", "D. Increase difficulty"],
+    answer: 1,
+    explanation: "Rubrics provide transparent criteria that guide both assessment and student performance."
+  },
+  {
+    question: "28. Which tool BEST supports collaborative project-based learning?",
+    options: ["A. Local notepad", "B. Shared cloud-based workspace", "C. Offline calculator", "D. BIOS interface"],
+    answer: 1,
+    explanation: "Cloud platforms enable real-time collaboration, communication, and shared editing."
+  },
+  {
+    question: "29. Instructional design should be learner-centered because:",
+    options: ["A. Technology demands it", "B. Learners have diverse needs and abilities", "C. It shortens lessons", "D. It reduces teacher workload"],
+    answer: 1,
+    explanation: "Learner-centered design acknowledges varied learning styles, backgrounds, and competencies."
+  },
+  {
+    question: "30. Which evaluation focuses on final learning outcomes?",
+    options: ["A. Diagnostic", "B. Formative", "C. Informal", "D. Summative"],
+    answer: 3,
+    explanation: "Summative evaluation measures final results and achievement after instruction."
+  },
+  {
+    question: "31. Digital storytelling enhances:",
+    options: ["A. Passive listening", "B. Creativity and communication skills", "C. Hardware installation", "D. Memorization only"],
+    answer: 1,
+    explanation: "Digital storytelling combines multimedia and narrative skills, promoting creativity and communication."
+  },
+  {
+    question: "32. A needs assessment is conducted to:",
+    options: ["A. Identify available gadgets", "B. Determine learning gaps and requirements", "C. Increase enrollment", "D. Replace teachers"],
+    answer: 1,
+    explanation: "Needs assessment identifies problems and guides instructional planning."
+  },
+  {
+    question: "33. Differentiated instruction using technology means:",
+    options: ["A. Providing identical tasks", "B. Offering varied learning pathways", "C. Eliminating objectives", "D. Avoiding collaboration"],
+    answer: 1,
+    explanation: "Technology enables flexible instruction tailored to individual learner needs."
+  },
+  {
+    question: "34. The MOST appropriate metric for evaluating educational technology success is:",
+    options: ["A. Number of devices purchased", "B. Student learning improvement", "C. Internet speed", "D. Teacher age"],
+    answer: 1,
+    explanation: "The true measure of success is improved student achievement and meaningful learning outcomes."
+  },
+  {
+    question: "35. Integrating podcasts into lessons primarily supports:",
+    options: ["A. Auditory learning preferences", "B. Hardware training", "C. Network troubleshooting", "D. Software installation"],
+    answer: 0,
+    explanation: "Podcasts support auditory learners and flexible content access."
+  },
+  {
+    question: "36. Open Educational Resources (OER) promote:",
+    options: ["A. Limited content sharing", "B. Equal and open access to knowledge", "C. Copyright violation", "D. Paid subscription access"],
+    answer: 1,
+    explanation: "OER provides freely accessible learning materials that promote equity."
+  },
+  {
+    question: "37. Effective instructional feedback should be:",
+    options: ["A. Delayed and vague", "B. Constructive and timely", "C. Publicly humiliating", "D. Minimal"],
+    answer: 1,
+    explanation: "Timely and constructive feedback enhances learning and improvement."
+  },
+  {
+    question: "38. Behaviorism in educational technology emphasizes:",
+    options: ["A. Reinforcement and observable behavior", "B. Pure memorization", "C. Social media usage", "D. Random exploration"],
+    answer: 0,
+    explanation: "Behaviorism focuses on stimulus-response and reinforcement principles."
+  },
+  {
+    question: "39. Technology-enhanced formative quizzes support:",
+    options: ["A. Immediate feedback", "B. Delayed correction", "C. Reduced learning", "D. Elimination of reflection"],
+    answer: 0,
+    explanation: "Immediate feedback helps students correct misunderstandings promptly."
+  },
+  {
+    question: "40. A digital simulation enhances learning by:",
+    options: ["A. Removing objectives", "B. Providing interactive practice", "C. Reducing engagement", "D. Avoiding assessment"],
+    answer: 1,
+    explanation: "Simulations allow experiential and applied learning."
+  },
+  {
+    question: "41. Cloud-based LMS platforms allow:",
+    options: ["A. Remote and flexible access", "B. Offline-only access", "C. Hardware replacement", "D. Reduced monitoring"],
+    answer: 0,
+    explanation: "Cloud-based systems enable anytime, anywhere learning access."
+  },
+  {
+    question: "42. Minimalist slide design improves:",
+    options: ["A. Cognitive clarity and focus", "B. Hardware speed", "C. Internet strength", "D. Screen brightness"],
+    answer: 0,
+    explanation: "Clean design reduces cognitive overload and enhances comprehension."
+  },
+  {
+    question: "43. Ethical integration of educational technology includes:",
+    options: ["A. Ignoring accessibility", "B. Protecting student privacy", "C. Sharing login credentials", "D. Using pirated software"],
+    answer: 1,
+    explanation: "Protecting student data ensures ethical and legal compliance."
+  },
+  {
+    question: "44. Project-based digital learning develops:",
+    options: ["A. Surface memorization", "B. Critical thinking and collaboration", "C. Hardware skills only", "D. Passive knowledge"],
+    answer: 1,
+    explanation: "Project-based learning fosters problem-solving and teamwork."
+  },
+  {
+    question: "45. The Design phase of ADDIE focuses on:",
+    options: ["A. Identifying objectives and instructional strategies", "B. Delivering the lesson", "C. Installing devices", "D. Evaluating results"],
+    answer: 0,
+    explanation: "The Design phase specifies learning objectives, assessment methods, and instructional strategies."
+  },
+  {
+    question: "46. Instructional technology should:",
+    options: ["A. Replace teachers", "B. Support pedagogy", "C. Follow trends blindly", "D. Increase screen time only"],
+    answer: 1,
+    explanation: "Technology must enhance teaching strategies and learning outcomes."
+  },
+  {
+    question: "47. Gathering student surveys after training reflects which level of Kirkpatrick?",
+    options: ["A. Reaction", "B. Learning", "C. Behavior", "D. Results"],
+    answer: 0,
+    explanation: "The Reaction level measures participants’ satisfaction and response to the training."
+  },
+  {
+    question: "48. Adaptive learning systems are designed to:",
+    options: ["A. Offer identical tasks to all", "B. Personalize learning pace and content", "C. Remove teacher involvement", "D. Avoid assessment"],
+    answer: 1,
+    explanation: "Adaptive systems adjust difficulty and content based on learner performance."
+  },
+  {
+    question: "49. The MOST effective integration of technology:",
+    options: ["A. Focuses on devices", "B. Enhances learning outcomes", "C. Increases screen exposure", "D. Eliminates traditional teaching"],
+    answer: 1,
+    explanation: "Successful integration is measured by improved understanding and skill development."
+  },
+  {
+    question: "50. The ultimate goal of educational technology integration is to:",
+    options: ["A. Modernize classrooms only", "B. Increase device usage", "C. Improve meaningful and measurable learning experiences", "D. Replace teachers permanently"],
+    answer: 2,
+    explanation: "Educational technology should create impactful, meaningful, and measurable improvements in learning."
+  }
+];
+
+let currentQuestion = 0;
+let score = 0;
+
+const startBtn = document.getElementById('startBtn');
+const quizDiv = document.getElementById('quiz');
+const resultDiv = document.getElementById('result');
+const questionEl = document.getElementById('question');
+const optionsEl = document.getElementById('options');
+const nextBtn = document.getElementById('nextBtn');
+const feedbackEl = document.getElementById('feedback');
+const currentEl = document.getElementById('current');
+const totalEl = document.getElementById('total');
+const scoreEl = document.getElementById('score');
+const totalScoreEl = document.getElementById('totalScore');
+const restartBtn = document.getElementById('restartBtn');
+
+function startQuiz() {
+  startBtn.classList.add('hidden');
+  quizDiv.classList.remove('hidden');
+  totalEl.textContent = questions.length;
+  totalScoreEl.textContent = questions.length;
+  loadQuestion();
+}
+
+function loadQuestion() {
+  const q = questions[currentQuestion];
+  questionEl.textContent = q.question;
+  optionsEl.innerHTML = '';
+  q.options.forEach((opt, i) => {
+    const div = document.createElement('div');
+    div.classList.add('option');
+    div.textContent = opt;
+    div.onclick = () => selectAnswer(i);
+    optionsEl.appendChild(div);
+  });
+  nextBtn.disabled = true;
+  feedbackEl.textContent = '';
+  currentEl.textContent = currentQuestion + 1;
+}
+
+function selectAnswer(selected) {
+  const q = questions[currentQuestion];
+  const opts = optionsEl.children;
+  for (let opt of opts) opt.classList.remove('selected');
+  opts[selected].classList.add('selected');
+  nextBtn.disabled = false;
+
+  if (selected === q.answer) {
+    score++;
+    opts[selected].classList.add('correct');
+  } else {
+    opts[selected].classList.add('incorrect');
+    opts[q.answer].classList.add('correct');
+  }
+  feedbackEl.textContent = q.explanation;
+}
+
+nextBtn.onclick = () => {
+  currentQuestion++;
+  if (currentQuestion < questions.length) {
+    loadQuestion();
+  } else {
+    quizDiv.classList.add('hidden');
+    resultDiv.classList.remove('hidden');
+    scoreEl.textContent = score;
+  }
+};
+
+restartBtn.onclick = () => {
+  currentQuestion = 0;
+  score = 0;
+  resultDiv.classList.add('hidden');
+  startQuiz();
+};
+
+startBtn.onclick = startQuiz;
